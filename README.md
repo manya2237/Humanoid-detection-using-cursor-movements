@@ -25,7 +25,7 @@ Ensure that the following libraries are installed:
 - **POSIX Threads (pthread)**: The project employs multithreading using the pthread library.
 
 ## Code Overview
-**mouse.c - Mouse Movement Detection**
+**`mouse.c` - Mouse Movement Detection**
 
 The mouse.c program continuously tracks the mouse cursor position and analyzes the movement data to identify patterns that are characteristic of automated scripts (bots). Key features include:
 
@@ -47,7 +47,7 @@ The mouse.c program continuously tracks the mouse cursor position and analyzes t
 **5. Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
 
 
-**mouse_bot.c - Mouse Bot Simulation**
+**`mouse_bot.c` - Mouse Bot Simulation**
 
 The mouse_bot.c script simulates automated cursor movements in a square pattern. This mimics typical non-human-like behavior:
 
@@ -57,6 +57,6 @@ The mouse_bot.c script simulates automated cursor movements in a square pattern.
 
 **Time-Based Execution**: Runs for a fixed duration of 10 seconds.
 
-**runboth.sh - Execution Script**
+**`runboth.sh` - Execution Script**
 
 The shell script launches the bot simulation in the background and then starts the detection program. This setup allows you to test the effectiveness of the detection algorithm.

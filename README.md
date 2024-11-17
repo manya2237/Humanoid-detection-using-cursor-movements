@@ -25,15 +25,24 @@ Ensure that the following libraries are installed:
 - **POSIX Threads (pthread)**: The project employs multithreading using the pthread library.
 
 ## Code Overview
--**mouse.c** - Mouse Movement Detection
+**mouse.c** - Mouse Movement Detection
+
 -The mouse.c program continuously tracks the mouse cursor position and analyzes the movement data to identify patterns that are characteristic of automated scripts (bots). Key features include:
 
 -Mouse Tracking: Uses the X11 library to capture the current mouse cursor position at regular intervals (100 milliseconds).
+
 -Velocity Calculation: Computes the velocity of the cursor based on the distance traveled over time.
+
 -Direction Analysis: Determines the direction of movement and checks for sudden changes.
+
 -Bot Detection Algorithm:
+
 --Straight-Line Movement: Counts the number of intervals where the movement direction remains constant (indicating a straight line).
+
 --Velocity Variance: Calculates the variance of cursor speed. Human movements tend to have a high variance due to natural hand jitter, while bots usually exhibit low variance.
+
 --Detection Criteria: If the straight-line count exceeds a certain threshold and the velocity variance is below a defined limit, the movement is classified as bot-like.
+
+
 -**Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
 

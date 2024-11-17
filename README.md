@@ -25,24 +25,38 @@ Ensure that the following libraries are installed:
 - **POSIX Threads (pthread)**: The project employs multithreading using the pthread library.
 
 ## Code Overview
-**mouse.c** - Mouse Movement Detection
+**mouse.c - Mouse Movement Detection**
 
--The mouse.c program continuously tracks the mouse cursor position and analyzes the movement data to identify patterns that are characteristic of automated scripts (bots). Key features include:
+The mouse.c program continuously tracks the mouse cursor position and analyzes the movement data to identify patterns that are characteristic of automated scripts (bots). Key features include:
 
--Mouse Tracking: Uses the X11 library to capture the current mouse cursor position at regular intervals (100 milliseconds).
+**1. Mouse Tracking**: Uses the X11 library to capture the current mouse cursor position at regular intervals (100 milliseconds).
 
--Velocity Calculation: Computes the velocity of the cursor based on the distance traveled over time.
+**2. Velocity Calculation**: Computes the velocity of the cursor based on the distance traveled over time.
 
--Direction Analysis: Determines the direction of movement and checks for sudden changes.
+**3. Direction Analysis**: Determines the direction of movement and checks for sudden changes.
 
--Bot Detection Algorithm:
+**4. Bot Detection Algorithm**:
 
---Straight-Line Movement: Counts the number of intervals where the movement direction remains constant (indicating a straight line).
+**a) Straight-Line Movement**: Counts the number of intervals where the movement direction remains constant (indicating a straight line).
 
---Velocity Variance: Calculates the variance of cursor speed. Human movements tend to have a high variance due to natural hand jitter, while bots usually exhibit low variance.
+**b) Velocity Variance**: Calculates the variance of cursor speed. Human movements tend to have a high variance due to natural hand jitter, while bots usually exhibit low variance.
 
---Detection Criteria: If the straight-line count exceeds a certain threshold and the velocity variance is below a defined limit, the movement is classified as bot-like.
+**c) Detection Criteria**: If the straight-line count exceeds a certain threshold and the velocity variance is below a defined limit, the movement is classified as bot-like.
 
 
-**Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
+**5. Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
 
+
+**mouse_bot.c - Mouse Bot Simulation**
+
+The mouse_bot.c script simulates automated cursor movements in a square pattern. This mimics typical non-human-like behavior:
+
+**Movement Patterns**: Moves the cursor in a fixed direction (right, down, left, up) and changes direction every 5 steps.
+
+**Fixed Step Size**: Uses a constant step size for each movement, unlike human movements, which are more variable.
+
+**Time-Based Execution**: Runs for a fixed duration of 10 seconds.
+
+**runboth.sh - Execution Script**
+
+The shell script launches the bot simulation in the background and then starts the detection program. This setup allows you to test the effectiveness of the detection algorithm.

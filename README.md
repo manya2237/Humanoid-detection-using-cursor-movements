@@ -44,5 +44,5 @@ Ensure that the following libraries are installed:
 --Detection Criteria: If the straight-line count exceeds a certain threshold and the velocity variance is below a defined limit, the movement is classified as bot-like.
 
 
--**Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
+**Multithreading**: The bot detection algorithm runs in a separate thread, allowing concurrent data analysis without blocking the main thread.
 
